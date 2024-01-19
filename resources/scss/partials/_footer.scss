@@ -1,0 +1,97 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.footer-wrapper {
+    height: $footer-top-height;
+    background-position: center;
+    background-image: url(../assets/img/footer-bg.jpg);
+    @include bg-image-properties(center, no-repeat, cover);
+
+    .footer-container {
+        @include container;
+        @include flex(row, start, center);
+        @include bg-image-properties(right, no-repeat, auto);
+        background-image: url(../assets/img/dc-logo-bg.png);
+        height: 100%;
+        gap: 1rem;
+
+        .links-container {
+            height: 80%;
+            color: white;
+            @include flex(column, stretch, start);
+            gap: 10px;
+
+            h4 {
+                position: relative;
+                left: 30px;
+                font-size: 1.2rem;
+                letter-spacing: -0.5px;
+            }
+
+            ul {
+                list-style-type: none;
+
+                li {
+                    font-size: 0.75rem;
+                    opacity: 0.5;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+// Footer bottom
+
+footer {
+    @include flex(row, center, center);
+    height: 100px;
+    background-color: $footer-bottom-bg-color;
+
+    .container {
+        @include flex(row, space-between, center);
+        @include container;
+        height: 80%;
+
+        button {
+            @include border(2px, solid, $btn-border-color);
+            background-color: $footer-bottom-bg-color;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .cta {
+            @include flex(row, center, center);
+            gap: 15px;
+
+            span {
+                color: $main-color;
+                font-size: 1.2rem;
+            }
+
+            .social {
+                @include flex(row, center, center);
+                gap: 10px;
+
+                .icon {
+                    @include flex(row, center, center);
+                    background-color: $social-bg-color;
+                    padding: 10px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+
+                    i {
+                        color: $footer-bottom-bg-color;
+                    }
+                }
+            }
+        }
+    }
+}
